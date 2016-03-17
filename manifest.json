@@ -1,0 +1,15 @@
+{
+	"manifest_version": 2,
+	"name": "Trimly",
+	"description": "This extension allows you to easily summarize news articles with additional relevant information.",
+	"version": "1.0",
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html",
+		"default_title": "Trim me!"
+		},
+	"permissions": [
+	"activeTab"
+	]
+}
