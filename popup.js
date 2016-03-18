@@ -2,13 +2,70 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+
+window.addEventListener('load', test);
 /**
  * Get the current URL.
  *
  * @param {function(string)} callback - called when the URL of the current tab
  *   is found.
  */
-function getCurrentTabUrl(callback) {
+
+function test()
+{
+    $.ajax({
+    type: 'POST',
+    url: 'test.py',
+    dataType: 'json',
+    data: "I am the king" 
+       }).done(function(o) {
+          console.log(o);
+         });
+
+
+}
+
+function summarize()
+{
+
+  var APIKEY =  '44ef2ea751ae79cec425559816bdc17b';
+  var APPID  =  '8ba330f9';
+  var testURL = "http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate";
+  console.log(APIKEY + " " + APPID);
+  /*
+  headers: {
+              'X-AYLIEN-TextAPI-Application-Key': APIKEY, 
+              'X-AYLIEN-TextAPI-Application-ID' : APPID
+            },
+  */
+ 
+  $.ajax({
+    type: 'POST',
+    url: 'https://api.aylien.com/api/v1/summarize',
+    beforeSend: function(xhrObj){
+               // Request headers
+               xhrObj.setRequestHeader('X-AYLIEN-TextAPI-Application-Key','44ef2ea751ae79cec425559816bdc17b');
+               xhrObj.setRequestHeader('X-AYLIEN-TextAPI-Application-ID', '8ba330f9');
+             },
+    /*data: {"sentences_number" : "3", 
+           "url" : testURL
+         },*/
+         dataType: 'json',
+        processData: false,
+        contentType: 'application/json',
+    success: function(data) {
+      console.log(data);
+    },
+    error: function(xhr, textStatus, errorThrown) {
+      console.log(xhr);
+      
+    }
+  });
+
+}
+
+/*
+function getCurrentTabUrl() {
   // Query filter to be passed to chrome.tabs.query - see
   // https://developer.chrome.com/extensions/tabs#method-query
   var queryInfo = {
@@ -33,8 +90,7 @@ function getCurrentTabUrl(callback) {
     // from |queryInfo|), then the "tabs" permission is required to see their
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
-
-    callback(url);
+    $('#url').html(url);
   });
 
   // Most methods of the Chrome extension APIs are asynchronous. This means that
@@ -54,6 +110,8 @@ function getCurrentTabUrl(callback) {
  * @param {function(string)} errorCallback - Called when the image is not found.
  *   The callback gets a string that describes the failure reason.
  */
+
+ /*
 function getImageUrl(searchTerm, callback, errorCallback) {
   // Google image search - 100 searches per day.
   // https://developers.google.com/image-search/
@@ -115,4 +173,4 @@ document.addEventListener('DOMContentLoaded', function() {
       renderStatus('Cannot display image. ' + errorMessage);
     });
   });
-});
+});*/
