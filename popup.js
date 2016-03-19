@@ -15,9 +15,9 @@ function test()
 {
     $.ajax({
     type: 'POST',
-    url: 'test.py',
+    url: 'http://0.0.0.0:5000/hello2',
     dataType: 'json',
-    data: "I am the king" 
+    data: {name: "I am the king"}
        }).done(function(o) {
           console.log(o);
          });
