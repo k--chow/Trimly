@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 
-window.addEventListener('load', test);
+window.addEventListener('load', getCurrentTabUrl);
 /**
  * Get the current URL.
  *
@@ -11,60 +11,23 @@ window.addEventListener('load', test);
  *   is found.
  */
 
-function test()
+function summarize(url)
 {
     $.ajax({
     type: 'POST',
-    url: 'http://0.0.0.0:5000/hello2',
+    url: 'http://0.0.0.0:5000/sum50',
     dataType: 'json',
-    data: {name: "I am the king"}
+    data: {url: url}
        }).done(function(o) {
-          console.log(o);
+          //console.log(o.summary);
+          $('#sum').html(o.summary);
          });
 
 
 }
 
-function summarize()
-{
 
-  var APIKEY =  '44ef2ea751ae79cec425559816bdc17b';
-  var APPID  =  '8ba330f9';
-  var testURL = "http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate";
-  console.log(APIKEY + " " + APPID);
-  /*
-  headers: {
-              'X-AYLIEN-TextAPI-Application-Key': APIKEY, 
-              'X-AYLIEN-TextAPI-Application-ID' : APPID
-            },
-  */
- 
-  $.ajax({
-    type: 'POST',
-    url: 'https://api.aylien.com/api/v1/summarize',
-    beforeSend: function(xhrObj){
-               // Request headers
-               xhrObj.setRequestHeader('X-AYLIEN-TextAPI-Application-Key','44ef2ea751ae79cec425559816bdc17b');
-               xhrObj.setRequestHeader('X-AYLIEN-TextAPI-Application-ID', '8ba330f9');
-             },
-    /*data: {"sentences_number" : "3", 
-           "url" : testURL
-         },*/
-         dataType: 'json',
-        processData: false,
-        contentType: 'application/json',
-    success: function(data) {
-      console.log(data);
-    },
-    error: function(xhr, textStatus, errorThrown) {
-      console.log(xhr);
-      
-    }
-  });
 
-}
-
-/*
 function getCurrentTabUrl() {
   // Query filter to be passed to chrome.tabs.query - see
   // https://developer.chrome.com/extensions/tabs#method-query
@@ -91,6 +54,7 @@ function getCurrentTabUrl() {
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
     $('#url').html(url);
+    summarize(url);
   });
 
   // Most methods of the Chrome extension APIs are asynchronous. This means that
