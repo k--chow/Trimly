@@ -1,12 +1,37 @@
 <head>
-<script src="popup.js"></script>
 <script src="jquery.js"></script>
+<script src="popup.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<h1>Trimly</h1>
-<h3 id="url"></h3>
-<p id="sum"></p>
 
-<a target="_blank" href="chrome-extension://pcenopkjmnggieimhiakbdonncmbjjff/options.html">Options</a>
+<h1 id="title">Trimly</h1>
+
+<div class="buttongroup col-md-12 centered">
+<div class="btn-group" role="group">
+
+<button type="button" id="5s" class="btn btn-default 5s" >Five Sentence</button>
+<button type="button" id="50p" class="btn btn-default 50p">Fifty Percent</button>
+<button type="button" id="FT" class="btn btn-default FT">Full Text</button>
+</div>
+
+</div>
+
+
+<h3 id="url"></h3>
+
+<div class="summary jumbotron">
+<p id="sum"><img class="load" src="loading.gif"/></p>
+</div>
+
+<div class="options col-md-12 col-centered">
+
+<button type="button" class="btn btn-default"><a target="_blank" href="chrome-extension://pcenopkjmnggieimhiakbdonncmbjjff/options.html">Options</a></button>
+<button type="button" class="btn btn-default save">Save</button>
+</div>
 </body>

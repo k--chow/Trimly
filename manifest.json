@@ -12,7 +12,8 @@
 	"permissions": [
 	"activeTab",
 	"tabs",
-	"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"
+	"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js",
+	"storage"
 	],
 	"options_page": "options.html"
 }

@@ -4,28 +4,103 @@
 
 
 window.addEventListener('load', getCurrentTabUrl);
-/**
- * Get the current URL.
- *
- * @param {function(string)} callback - called when the URL of the current tab
- *   is found.
- */
+
+
+
+ //object for article
+ function Article(url, full, sum50, sent5)
+ {
+    this.url = url;
+    this.full = full;
+    this.sum50 = sum50;
+    this.sent5 = sent5;
+ }
+
+ 
+
+
+
 
 function summarize(url)
 {
+  var summary;
+  var text;
+  var article = new Article(null, null, null, null);
+
+    
+  
+    //Get 5 sentence summary
     $.ajax({
     type: 'POST',
-    url: 'http://0.0.0.0:5000/sum50',
+    url: 'https:trimlyflask.herokuapp.com/5sentence',
     dataType: 'json',
-    data: {url: url}
-       }).done(function(o) {
-          //console.log(o.summary);
-          $('#sum').html(o.summary);
+    data: {url: url},
+    success: function(o) {
+
+          var s5 = o.summary;
+          article.sent5 = s5;
+          $('#sum').html(s5);
+          //$('#sum').html(o.summary);
+        }
+    
          });
+
+      //Get 50% sentence summary
+    $.ajax({
+    type: 'POST',
+    url: 'https://trimlyflask.herokuapp.com/sum50',
+    dataType: 'json',
+    data: {url: url},
+    success: function(o) {
+          console.log(o.summary);
+          summary = o.summary;
+          text = o.text;
+          article.url = url;
+          article.full = text;
+          article.sum50 = summary;
+
+          (url, text, summary, null);
+          //$('#sum').html(o.summary);
+
+         
+        },
+        error: function(o) {
+          $('#sum').html("This article cannot be summarized.");
+        }
+    
+         });
+
+    //Event listener to save the current article
+    $(".save").on('click', function() {
+      console.log("Ok");
+       chrome.storage.local.get({'list': []}, function(result){
+          var list = result.list;
+          list.push({'article': article});
+
+          chrome.storage.local.set({list: list}, function() {
+            chrome.storage.local.get('list', function(result) {
+              console.log(result.list)
+            })
+          })
+        });
+ });
+       
+//Three button actions: 5 sentence, 50%, full text
+ $(".50p").on('click', function() {
+    $('#sum').html(article.sum50);
+  });
+
+ $(".5s").on('click', function() {
+    $('#sum').html(article.sent5);
+ });
+
+ $(".FT").on('click', function() {
+    $('#sum').html(article.full);
+ });
+
 
 
 }
-
 
 
 function getCurrentTabUrl() {
@@ -53,7 +128,7 @@ function getCurrentTabUrl() {
     // from |queryInfo|), then the "tabs" permission is required to see their
     // "url" properties.
     console.assert(typeof url == 'string', 'tab.url should be a string');
-    $('#url').html(url);
+    //$('#url').html(url);
     summarize(url);
   });
 

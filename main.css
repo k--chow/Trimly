@@ -1,4 +1,44 @@
 body {
 	min-width: 500px;
 	min-height: 300px;
+	max-width: 600px;
+	max-height: 350px;
+}
+
+#title {
+	text-align: center;
+}
+
+.summary {
+	border: dotted black 1px;
+}
+
+.jumbotron p {
+	font-size: 14px;
+}
+
+.jumbotron {
+	padding: 40px;
+
+}
+
+.jumbotron .load {
+	height: 100px;
+	width: 100px;
+
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+
+.btn-group {
+	display: block;
+	float: center;
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+	left: 16%;
 }
