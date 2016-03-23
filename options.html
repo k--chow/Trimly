@@ -1,8 +1,41 @@
 <script src="jquery.js"></script>
 <script src="options.js"></script>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<html ng-app="myApp">
 <h1>Options</h1>
 <div class="jumbotron">
+<div class="list-group" ng-controller="myCtrl">
+<button ng-click="loadData()">Refresh</button>
+<div class="book" ng-repeat="a in articles">
+
+<p id="title">Link: {{a.url}} </p>
+<p> {{a.sent5}}</p>
+<button type="button" class="btn btn-info" ng-click="delete($index)">Delete</button>
+<!--<p id="author">by {{a.sum50}}</p>
+<p id="url">{{a.url}}</p>			
+
+	<section class="tab" ng-controller="TabController as panel">
+	<ul class="nav nav-pills">
+	<li ng-class="{active:panel.tab === 1}">
+		<a href ng-click="panel.setTab(1)">Description</a></li>
+	<li ng-class="{active:panel.tab === 2}">
+		<a href ng-click="panel.setTab(1)">Reviews</a></li>
+	</ul>
+	<div ng-show="panel.isSet(1)">
+	<p>{{a.sent5}}</p>
+	</div>
+	<div>
+	<div ng-show="panel.isSet(2)">
+	<blockquote></blockquote>
+	</div>
+	</section>-->
+	
+</div>
+<button type="button" class="btn btn-info del" ng-click="deleteAll()">Delete Articles</button>
+</div>
 <p id="urls"></p>
 </div>
-<button type="button" class="deleteA btn btn-info">Delete Articles</button>
+
+</html>

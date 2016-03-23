@@ -75,7 +75,7 @@ function summarize(url)
       console.log("Ok");
        chrome.storage.local.get({'list': []}, function(result){
           var list = result.list;
-          list.push({'article': article});
+          list.push(article);
 
           chrome.storage.local.set({list: list}, function() {
             chrome.storage.local.get('list', function(result) {

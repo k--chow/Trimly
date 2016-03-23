@@ -1,25 +1,23 @@
 
 window.addEventListener('load', getData);
+var articles = [];
 
 function getData()
 {
 chrome.storage.local.get('list', function(result){
+articles = result.list;
+       
 
-          //$('#urls').html(result.list[2].article.url);
           
  });
-$(".deleteA").on('click', function() {
-    DeleteOne();
-    
-  });
-}
 
+
+}
 
 
 function Delete()
 {
 	chrome.storage.local.clear();
-	
 	console.log("Storage deleted.");
 }
 

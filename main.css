@@ -1,8 +1,8 @@
 body {
-	min-width: 500px;
-	min-height: 300px;
-	max-width: 600px;
-	max-height: 350px;
+	min-width: 700px;
+	min-height: 100px;
+	max-width: 800px;
+	max-height: 300px;
 }
 
 #title {
@@ -19,6 +19,7 @@ body {
 
 .jumbotron {
 	padding: 40px;
+
 
 }
 
