@@ -9,3 +9,5 @@ UI need more expertise
 angular JS to load and delete data
 angular is great!
 data persistence
+one function after another
+$scope.apply

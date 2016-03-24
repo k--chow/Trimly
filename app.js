@@ -46,11 +46,27 @@
 			$scope.articles.splice(index, index+1);
 			console.log($scope.articles);
 			//implement part to store list in chrome back to original
+			chrome.storage.local.get({list: []}, function(result) {
+				result.list.splice(index, index+1);
+				chrome.storage.local.set(result, function() {
+			console.log("Item Deleted");
+		})
+	});
 		}
-		//delete all items on list
+		
 
 		$scope.deleteAll = function() {
 			$scope.articles = [];
+			//empty list from chrome storage
+			chrome.storage.local.get({list: []}, function(result) {
+				result.list.length = 0;
+				chrome.storage.local.set(result, function() {
+				console.log("Storage deleted.");
+		    });
+			
+
+		});
+
 		}
 
 		$scope.loadData = function() {
@@ -98,6 +114,7 @@
 		this.setTab = function(tab) {
 			this.tab = tab;
 		}
+		//check if clicked
 		this.isSet = function(tab) {
 			if(this.tab == tab)
 			{

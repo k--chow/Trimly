@@ -7,31 +7,36 @@
 <h1>Options</h1>
 <div class="jumbotron">
 <div class="list-group" ng-controller="myCtrl">
-<button ng-click="loadData()">Refresh</button>
-<div class="book" ng-repeat="a in articles">
+<button class="btn btn-info" ng-click="loadData()">Refresh</button>
+<div class="article" ng-repeat="a in articles">
 
 <p id="title">Link: {{a.url}} </p>
-<p> {{a.sent5}}</p>
-<button type="button" class="btn btn-info" ng-click="delete($index)">Delete</button>
-<!--<p id="author">by {{a.sum50}}</p>
-<p id="url">{{a.url}}</p>			
+
+			
 
 	<section class="tab" ng-controller="TabController as panel">
 	<ul class="nav nav-pills">
 	<li ng-class="{active:panel.tab === 1}">
-		<a href ng-click="panel.setTab(1)">Description</a></li>
+		<a href ng-click="panel.setTab(1)">Five Sentence</a></li>
 	<li ng-class="{active:panel.tab === 2}">
-		<a href ng-click="panel.setTab(1)">Reviews</a></li>
+		<a href ng-click="panel.setTab(2)">Fifty Percent</a></li>
+	<li ng-class="{active:panel.tab === 3}">
+		<a href ng-click="panel.setTab(3)">Fifty Percent</a></li>
 	</ul>
 	<div ng-show="panel.isSet(1)">
 	<p>{{a.sent5}}</p>
 	</div>
 	<div>
 	<div ng-show="panel.isSet(2)">
-	<blockquote></blockquote>
+	<p>{{a.sum50}}</p>
 	</div>
-	</section>-->
-	
+	<div ng-show="panel.isSet(3)">
+	<p>{{a.url}}</p>
+	</div>
+
+
+	</section>
+<button type="button" class="btn btn-info" ng-click="delete($index)">Delete</button>	
 </div>
 <button type="button" class="btn btn-info del" ng-click="deleteAll()">Delete Articles</button>
 </div>
