@@ -1,46 +1,52 @@
+<html ng-app="myApp">
 <script src="jquery.js"></script>
 <script src="options.js"></script>
 <script src="angular.min.js"></script>
+<script src="angular-sanitize.js"></script>
 <script src="app.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<html ng-app="myApp">
-<h1>Options</h1>
+
+
+<h1 ng-show="true">Options</h1>
 <div class="jumbotron">
 <div class="list-group" ng-controller="myCtrl">
 <button class="btn btn-info" ng-click="loadData()">Refresh</button>
 <div class="article" ng-repeat="a in articles">
 
-<p id="title">Link: {{a.url}} </p>
+<h1><a href="{{a.url}}">URL</a></h1>
 
 			
 
-	<section class="tab" ng-controller="TabController as panel">
+	<section ng-controller="TabController as panel">
 	<ul class="nav nav-pills">
-	<li ng-class="{active:panel.tab === 1}">
+	<li ng-class="{active:panel.isSelected(1)}">
 		<a href ng-click="panel.setTab(1)">Five Sentence</a></li>
-	<li ng-class="{active:panel.tab === 2}">
+	<li ng-class="{active:panel.isSelected(2)}">
 		<a href ng-click="panel.setTab(2)">Fifty Percent</a></li>
-	<li ng-class="{active:panel.tab === 3}">
-		<a href ng-click="panel.setTab(3)">Fifty Percent</a></li>
+	<li ng-class="{active:panel.isSelected(3)}">
+		<a href ng-click="panel.setTab(3)">Full Text</a></li>
 	</ul>
-	<div ng-show="panel.isSet(1)">
-	<p>{{a.sent5}}</p>
+
+	<div ng-show="panel.isSelected(1)">
+	<p ng-bind-html="a.sent5"></p>
 	</div>
-	<div>
-	<div ng-show="panel.isSet(2)">
+	<div ng-show="panel.isSelected(2)">
 	<p>{{a.sum50}}</p>
 	</div>
-	<div ng-show="panel.isSet(3)">
-	<p>{{a.url}}</p>
+	<div ng-show="panel.isSelected(3)">
+	<p>{{a.full}}</p>
 	</div>
+
 
 
 	</section>
 <button type="button" class="btn btn-info" ng-click="delete($index)">Delete</button>	
+
 </div>
+
 <button type="button" class="btn btn-info del" ng-click="deleteAll()">Delete Articles</button>
 </div>
-<p id="urls"></p>
+
 </div>
 
 </html>

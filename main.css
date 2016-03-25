@@ -43,3 +43,8 @@ img {
 	position: relative;
 	left: 16%;
 }
+
+.article {
+	display: block;
+	margin: 0 auto;
+}

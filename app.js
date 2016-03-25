@@ -16,7 +16,7 @@
     $scope.articles = articles;
 	}*/
 	
-	var app = angular.module('myApp',[]);
+	var app = angular.module('myApp',['ngSanitize']);
 	/*
 	function PersonListCtrl($scope, $http) {
   $scope.loadData = function () {
@@ -69,6 +69,8 @@
 
 		}
 
+		$scope.myHTML = "<b>Hi</b>";
+
 		$scope.loadData = function() {
 				
 			$scope.getData(function() {
@@ -113,17 +115,13 @@
 		this.tab = 1;
 		this.setTab = function(tab) {
 			this.tab = tab;
+
+			console.log(this.tab);
+			console.log(this.isSelected(1));
 		}
-		//check if clicked
-		this.isSet = function(tab) {
-			if(this.tab == tab)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+	
+		this.isSelected = function(checkTab) {
+			return this.tab === checkTab;
 		}
 	});
 
