@@ -8,12 +8,14 @@ window.addEventListener('load', getCurrentTabUrl);
 
 
  //object for article
- function Article(url, full, sum50, sent5)
+ function Article(url, full, sum50, sent5, title, author)
  {
     this.url = url;
     this.full = full;
     this.sum50 = sum50;
     this.sent5 = sent5;
+    this.title = title;
+    this.author = author;
  }
 
  
@@ -27,7 +29,30 @@ function summarize(url)
   var text;
   var article = new Article(null, null, null, null);
 
+    //Get author and title
+    $.ajax({
+    type: 'POST',
+    url: 'https://trimlyflask.herokuapp.com/article1',
+    dataType: 'json',
+    data: {url: url},
+    success: function(data) {
+          
+          title = data.title;
+          author = data.author;
+          article.title = title;
+          article.author = author;
+          $('#title2').html(title);
+          $('#author').html(author);
+          
+          //$('#sum').html(o.summary);
+         
+        },
+        error: function(data) {
+          $('#sum').html("This article cannot be summarized.");
+          console.log(data);
+        }
     
+         });
   
     //Get 5 sentence summary
     $.ajax({
@@ -59,7 +84,7 @@ function summarize(url)
           article.full = text;
           article.sum50 = summary;
 
-          (url, text, summary, null);
+          
           //$('#sum').html(o.summary);
 
          
@@ -69,6 +94,8 @@ function summarize(url)
         }
     
          });
+
+    
 
     //Event listener to save the current article
     $(".save").on('click', function() {
