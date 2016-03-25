@@ -41,10 +41,17 @@ img {
 	text-align: center;
 	margin: 0 auto;
 	position: relative;
-	left: 16%;
+	left: 40%;
 }
 
 .article {
 	display: block;
 	margin: 0 auto;
+}
+
+#title2 {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+
 }
