@@ -11,3 +11,6 @@ angular is great!
 data persistence
 one function after another
 $scope.apply
+saved properly
+topic search?
+highlight keywords

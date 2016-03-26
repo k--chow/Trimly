@@ -7,13 +7,14 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 
-<h1 ng-show="true">Options</h1>
+<h1 ng-show="true">Library of Articles</h1>
 <div class="jumbotron">
 <div class="list-group" ng-controller="myCtrl">
 <button class="btn btn-info" ng-click="loadData()">Refresh</button>
 <div class="article" ng-repeat="a in articles">
 
-<h1><a href="{{a.url}}">URL</a></h1>
+<h2><a href="{{a.url}}" ng-bind-html="a.title"></a></h2>
+<p>by {{a.author}}</p>
 
 			
 
@@ -34,7 +35,7 @@
 	<p>{{a.sum50}}</p>
 	</div>
 	<div ng-show="panel.isSelected(3)">
-	<p>{{a.full}}</p>
+	<p ng-bind-html="a.full"></p>
 	</div>
 
 

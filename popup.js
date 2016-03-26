@@ -53,6 +53,21 @@ function summarize(url)
         }
     
          });
+    var keywords = [];
+    //Get keywords
+    $.ajax({
+    type: 'POST',
+    url: 'https://trimlyflask.herokuapp.com/keywords',
+    dataType: 'json',
+    data: {url: url},
+    success: function(data) {
+          
+          keywords = data.keywords
+          console.log(keywords);
+          
+         
+        }
+         });
   
     //Get 5 sentence summary
     $.ajax({
@@ -63,8 +78,15 @@ function summarize(url)
     success: function(o) {
 
           var s5 = o.summary;
-          article.sent5 = s5;
+          
+          //bold the keywords
+          for(i=0; i<keywords.length; i++)
+          {
+            s5 = s5.replace(keywords[i], "<b>" + keywords[i] + "</b>")
+          }
+          
           $('#sum').html(s5);
+          article.sent5 = s5;
           //$('#sum').html(o.summary);
         }
     
@@ -73,7 +95,7 @@ function summarize(url)
       //Get 50% sentence summary
     $.ajax({
     type: 'POST',
-    url: 'https://trimlyflask.herokuapp.com/sum50',
+    url: 'https://trimlyflask.herokuapp.com/10sentence',
     dataType: 'json',
     data: {url: url},
     success: function(o) {
@@ -81,8 +103,15 @@ function summarize(url)
           summary = o.summary;
           text = o.text;
           article.url = url;
-          article.full = text;
+          
+          //bold the keywords
+          for(i=0; i<keywords.length; i++)
+          {
+            summary = summary.replace(keywords[i], "<b>" + keywords[i] + "</b>")
+            text = text.replace(keywords[i], "<b>" + keywords[i] + "</b>")
+          }
           article.sum50 = summary;
+          article.full = text;
 
           
           //$('#sum').html(o.summary);
