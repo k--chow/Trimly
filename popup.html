@@ -1,6 +1,8 @@
 <head>
 <script src="jquery.js"></script>
 <script src="popup.js"></script>
+<script src="jspdf/jspdf.debug.js"></script>
+<script src="jspdf/jspdf.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -11,20 +13,20 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-
-<h2 id="title"><i class="fa fa-leaf"></i> Trimly</h2>
+<div class="background">
+<h2 id="title">Trimly <i class="fa fa-leaf"></i></h2>
 <p id="title2"></p>
 <p id="author"></p>
 
 
 
 <div class="buttongroup col-md-12 centered">
-<div class="btn-group" role="group">
+<div id="btn-group" class="btn-group" role="group">
 
-<button type="button" id="5s" class="btn btn-default 5s" ><i class="fa fa-leaf"></i>
+<button type="button" id="5s" class="btn btn-default 5s lighter" ><i class="fa fa-leaf"></i>
 </button>
-<button type="button" id="50p" class="btn btn-default 50p"><i class="fa fa-pagelines"></i></button>
-<button type="button" id="FT" class="btn btn-default FT"><i class="fa fa-tree"></i>
+<button type="button" id="50p" class="btn btn-default 50p lighter"><i class="fa fa-pagelines"></i></button>
+<button type="button" id="FT" class="btn btn-default FT lighter"><i class="fa fa-tree"></i>
 </button>
 </div>
 
@@ -39,7 +41,12 @@
 
 <div class="options col-md-12 col-centered">
 
-<button type="button" class="btn btn-default"><a target="_blank" href="chrome-extension://pcenopkjmnggieimhiakbdonncmbjjff/options.html">Options</a></button>
-<button type="button" class="btn btn-default save">Save</button>
+<div class="title">
+<button type="button" class="btn btn-default"><a target="_blank" href="chrome-extension://pcenopkjmnggieimhiakbdonncmbjjff/options.html"><i class="fa fa-book"></i></a></button>
+<button type="button" class="btn btn-default export">Export to PDF</button>
+<button type="button" class="btn btn-default save"><i class="fa fa-floppy-o"></i></button>
+</div>
+
+</div>
 </div>
 </body>

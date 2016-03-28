@@ -112,9 +112,15 @@
 	});
 
 	app.controller('TabController', function() {
-		this.tab = 1;
+		//this.tab = 1;
 		this.setTab = function(tab) {
-			this.tab = tab;
+			if (this.isSelected(tab)) {
+				this.tab = null
+			}
+			else
+			{
+				this.tab = tab;
+			}
 
 			console.log(this.tab);
 			console.log(this.isSelected(1));

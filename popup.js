@@ -28,6 +28,7 @@ function summarize(url)
   var summary;
   var text;
   var article = new Article(null, null, null, null);
+  
 
     //Get author and title
     $.ajax({
@@ -45,7 +46,6 @@ function summarize(url)
           $('#author').html(author);
           
           //$('#sum').html(o.summary);
-         
         },
         error: function(data) {
           $('#sum').html("This article cannot be summarized.");
@@ -65,7 +65,6 @@ function summarize(url)
           keywords = data.keywords
           console.log(keywords);
           
-         
         }
          });
   
@@ -88,11 +87,13 @@ function summarize(url)
           $('#sum').html(s5);
           article.sent5 = s5;
           //$('#sum').html(o.summary);
+         $('#btn-group').css("opacity","1");
+
         }
     
          });
 
-      //Get 50% sentence summary
+      //Get 10 sentence sentence summary
     $.ajax({
     type: 'POST',
     url: 'https://trimlyflask.herokuapp.com/10sentence',
@@ -103,7 +104,7 @@ function summarize(url)
           summary = o.summary;
           text = o.text;
           article.url = url;
-          
+           
           //bold the keywords
           for(i=0; i<keywords.length; i++)
           {
@@ -112,8 +113,8 @@ function summarize(url)
           }
           article.sum50 = summary;
           article.full = text;
-
           
+
           //$('#sum').html(o.summary);
 
          
@@ -124,7 +125,87 @@ function summarize(url)
     
          });
 
-    
+    //Make PDF with article
+    function makePDF() {
+      var doc = new jsPDF();
+      
+      pdfTitle = article.title.replace('<br>', '');
+      pdfTitle = pdfTitle.replace('</br>', '');
+      var splitTitle = doc.splitTextToSize(pdfTitle, 180);
+      console.log(article.sent5);
+      var sum1 = article.sent5.split("<br>").join("\n\n");
+      sum1 = sum1.split("<li>").join('');
+      sum1 = sum1.split("</li>").join('');
+      sum1 = sum1.split("<b>").join('');
+      sum1 = sum1.split("</b>").join('');
+      console.log(sum1);
+      
+      var summaryOne = doc.splitTextToSize(sum1, 280);
+      
+      doc.text(20, 20, splitTitle);
+      doc.setFontSize(10);
+      var splitURL = doc.splitTextToSize(article.url, 180);
+      doc.text(20, 40, splitURL);
+      doc.setFontSize(10);
+      doc.text(20, 60, article.author);
+      doc.text(20, 80, summaryOne);
+      doc.addPage();
+      doc.save(pdfTitle + '.pdf');
+    }
+
+    //Make PDF with article from HTML
+    function createPDF() {
+      var pdf = new jsPDF('p', 'pt', 'letter')
+
+// source can be HTML-formatted string, or a reference
+// to an actual DOM element from which the text will be scraped.
+, source = article.full
+
+// we support special element handlers. Register them with jQuery-style
+// ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+// There is no support for any other type of selectors
+// (class, of compound) at this time.
+, specialElementHandlers = {
+  // element with id of "bypass" - jQuery style selector
+  '#bypassme': function(element, renderer){
+    // true = "handled elsewhere, bypass text extraction"
+    return true
+  }
+}
+
+margins = {
+    top: 80,
+    bottom: 60,
+    left: 40,
+    width: 522
+  };
+  // all coords and widths are in jsPDF instance's declared units
+  // 'inches' in this case
+pdf.fromHTML(
+    source // HTML string or DOM elem ref.
+    , margins.left // x coord
+    , margins.top // y coord
+    , {
+      'width': margins.width // max width of content on PDF
+      , 'elementHandlers': specialElementHandlers
+    },
+    function (dispose) {
+      // dispose: object with X, Y of the last line add to the PDF
+      //          this allow the insertion of new lines after html
+        pdf.save('Test.pdf');
+      },
+    margins
+  )
+
+
+    }
+
+
+
+    //Event listener to export pdf
+    $(".export").on('click', function() {
+      makePDF();
+    })
 
     //Event listener to save the current article
     $(".save").on('click', function() {

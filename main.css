@@ -7,18 +7,30 @@ body {
 
 #title {
 	text-align: center;
+	color: #888;
+	font-size: 1.5em;
+	margin-top: 10px;
 }
-
+#title .fa-leaf{
+	font-size: .9em;
+}
 .summary {
 	border: dotted black 1px;
+	margin: 15px;
 }
 
 .jumbotron p {
 	font-size: 14px;
+
+}
+
+body {
+	background-color: #DAE8C7;
 }
 
 .jumbotron {
 	padding: 40px;
+	background-color: #fefefe;
 
 
 }
@@ -42,6 +54,8 @@ img {
 	margin: 0 auto;
 	position: relative;
 	left: 40%;
+	opacity: 0;
+	transition: opacity 1s;
 }
 
 .article {
@@ -53,9 +67,36 @@ img {
 	display: block;
 	margin: 0 auto;
 	text-align: center;
+	margin-top: -1.6em;
+    color: #383E32;
+    font-size: 1.5em;
+    padding-left: .3em;
+    padding-right: .3em;
 
 }
 
 #author {
+	text-align: center; 
+}
+
+.article {
+	border: solid grey 1px;
+	max-width: 300px;
+	min-height: 500px;
+}
+
+.list-group {
+	margin: 15px;
+}
+
+.title {
 	text-align: center;
+}
+
+.lighter {
+	background-color: #fafafa;
+}
+
+.lighter i {
+	color: #B9D8B9;
 }
