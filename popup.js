@@ -29,7 +29,56 @@ function summarize(url)
   var text;
   var article = new Article(null, null, null, null);
   
+  var start = new Date().getTime();
 
+
+  
+
+  $.ajax({
+    type: 'POST',
+    url: 'https://trimlyflask.herokuapp.com/api/trimly',
+    dataType: 'json',
+    data: {url: url},
+    success: function(data) {
+      title = data.title;
+      author = data.author;
+      keywords = data.keywords;
+      fivesentence = data.fivesentence;
+      full = data.full;
+      tensentence = data.tensentence;
+
+      $('#title2').html(title);
+      $('#author').html(author);
+
+      for(i=0; i<keywords.length; i++)
+          {
+            fivesentence = fivesentence.replace(keywords[i], "<b>" + keywords[i] + "</b>");
+            tensentence = tensentence.replace(keywords[i], "<b>" + keywords[i] + "</b>")
+          }
+          
+          $('#sum').html(fivesentence);
+
+          $('#btn-group').css("opacity","1");
+
+          article.url = url;
+          article.title = title;
+          article.author = author;
+          article.sent5 = fivesentence;
+          article.sum50 = tensentence;
+          article.full = full;
+
+
+          var end = new Date().getTime();
+          var time = end - start;
+          console.log('Execution time: ' + time);
+    },
+    error: function(o) {
+          $('#sum').html("This article cannot be summarized.");
+        }
+
+  }) 
+
+    /*
     //Get author and title
     $.ajax({
     type: 'POST',
@@ -116,6 +165,9 @@ function summarize(url)
           
 
           //$('#sum').html(o.summary);
+          var end = new Date().getTime();
+          var time = end - start;
+          console.log('Execution time: ' + time);
 
          
         },
@@ -123,7 +175,7 @@ function summarize(url)
           $('#sum').html("This article cannot be summarized.");
         }
     
-         });
+         });*/
 
     //Make PDF with article
     function makePDF() {
