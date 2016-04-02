@@ -1,9 +1,9 @@
-// Copyright (c) 2014 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+
+
 
 
 window.addEventListener('load', getCurrentTabUrl);
+
 
 
 
@@ -252,7 +252,18 @@ pdf.fromHTML(
 
     }
 
+    //Event listener for sharing article
+    $(".share").on('click', function() {
+      FB.ui({
+      method: 'send',
+      link: url,
+      });
+    })
 
+    //Event listener for options
+    $(".option").on('click', function() {
+    chrome.tabs.create({'url': "/options.html" } );
+    });
 
     //Event listener to export pdf
     $(".export").on('click', function() {
