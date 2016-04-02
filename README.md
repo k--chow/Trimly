@@ -1,7 +1,7 @@
-<h1 style="text-align: center;">Trimly</h1>
+<h1 align="center">Trimly</h1>
 ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly128.png "Final")
 
-<h3>Trimly is a chrome extension that summarizes articles.</h3>
+<h3 align="center">Trimly is a chrome extension that summarizes articles.</h3>
 
 <b>Features and Functionality</b>
 <br>
@@ -22,7 +22,20 @@
 ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly1.gif "Final")
 
 <h3>How To Install</h3>
-![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/downloadzip.png "Final")
+<a href="https://github.com/k--chow/Trimly/archive/master.zip"><img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/downloadzip.png"/></a>
+- Download the zip file, or git clone/pull Trimly.
+
+- Go to chrome extensions.
+
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/install2.png"/>
+
+- Load unpacked extensions and select the file directory for Trimly. 
+
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/install3.png"/>
+
+- Go to an article and click on the Trimly icon.
+
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/install4.png"/>
 
 <h3>Technologies Used</h3>
 
