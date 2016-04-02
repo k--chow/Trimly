@@ -1,6 +1,6 @@
-<h1 style="text-align: center;">Trimly</h1>
-[[https://github.com/k--chow/trimly/blob/master/icons/trimly128.png|alt=trimly]]
-<h3>Trimly is a chrome extension that summarizes articles</h3>
+<h1 style="text-align: center;">Trimly ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly128.png "Final")</h1>
+
+<h3>Trimly is a chrome extension that summarizes articles.</h3>
 
 <b>Features and Functionality</b>
 <br>
@@ -9,9 +9,9 @@
 - [x] Returns information including author, title, and bolds keywords of article.
 - [x] Allows storage of articles into options page.
 - [x] Allows 'Export to PDF' option to create a PDF summary from the article.
-- [] Link to context of author of article.
-- [] Links to keyword wikipedia pages. 
-- [] Share article on Facebook.
+- [ ] Link to context of author of article.
+- [ ] Links to keyword wikipedia pages. 
+- [ ] Share article on Facebook.
 
 ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/topbuttons.png "Final")
 
