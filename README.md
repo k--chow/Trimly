@@ -1,9 +1,13 @@
-<h1 align="center">Trimly</h1>
-<img align="center" src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly128.png"/>
+<h1 align="center">
+Trimly <img align="center" src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly128.png"/>
+</h1>
 
-<h3 align="center">Trimly is a chrome extension that summarizes articles.</h3>
 
-<img width="200" height="200" align="center" src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly1.gif"/>
+<h3 align="center">
+Trimly is a chrome extension that summarizes articles.
+<img width="400" height="400" align="center" src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly1.gif"/>
+</h3>
+
 
 <b>Features and Functionality</b>
 <br>
@@ -16,8 +20,10 @@
 - [ ] Links to keyword wikipedia pages. 
 - [ ] Share article on Facebook.
 
+The three options of Trimly - five sentence summary, ten sentence summary, and full article. 
 ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/topbuttons.png "Final")
 
+Access the library of saved articles, convert the article summary into a PDF, and save the article.
 ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/bottombuttons.png "Final")
 
 
