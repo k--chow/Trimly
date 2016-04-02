@@ -1,4 +1,5 @@
-<h1 style="text-align: center;">Trimly ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly128.png "Final")</h1>
+<h1 style="text-align: center;">Trimly</h1>
+![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly128.png "Final")
 
 <h3>Trimly is a chrome extension that summarizes articles.</h3>
 
