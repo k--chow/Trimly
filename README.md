@@ -20,16 +20,16 @@ Trimly is a chrome extension that summarizes articles.
 
 
 The three options of Trimly - five sentence summary, 
-ten sentence summary, and full article. 
-![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/topbuttons.png "Final")
+ten sentence summary, and full article. <br><br>
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/topbuttons.png"/>
 
-Access the library of saved articles, convert the article summary into a PDF, and save the article.<br>
+Access the library of saved articles, convert the article summary into a PDF, and save the article.<br><br>
 <img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/bottombuttons.png"/>
 
-Simple way to store and reread articles. <br>
+Simple way to store and reread articles. <br><br>
 <img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly2.gif"/>
 
-Easily export summary to PDF. <br>
+Easily export summary to PDF. <br><br>
 <img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly3.gif"/>
 
 
@@ -56,7 +56,11 @@ OR
 <img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/install4.png"/>
 
 <h3>Technologies Used</h3>
-
+- AngularJS
+- jsPDF
+- LiceCap for GIFS
+- Heroku for backend hosting
+- Aylien API SDK
 <h3>Procedure and Learning Experiences</h3>
 <!--
 Flask - CORS
