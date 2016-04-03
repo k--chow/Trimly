@@ -201,7 +201,6 @@ function summarize(url)
       doc.setFontSize(10);
       doc.text(20, 60, article.author);
       doc.text(20, 80, summaryOne);
-      doc.addPage();
       doc.save(pdfTitle + '.pdf');
     }
 
