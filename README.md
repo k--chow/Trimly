@@ -34,6 +34,7 @@ Easily export summary to PDF. <br><br>
 
 
 <h3>How To Install</h3>
+<i>Note: Trimly may operate slowly initially because of the backend hosted on Heroku's free tier that sleeps.</i>
 
 - Download the zip file, or git clone/pull Trimly.
 
@@ -61,7 +62,18 @@ OR
 - LiceCap for GIFS
 - Heroku for backend hosting
 - Aylien API SDK
+- Chrome Storage
+
 <h3>Procedure and Learning Experiences</h3>
+Trimly was incredibly fun to build. 
+
+- Used a Flask python backend on Heroku with the Aylien SDK API.
+- Used chrome storage local to store the articles.
+- Used AngularJS to load chrome storage and set a model and view for each article in the options page.
+- Used jsPDF library to export summary to PDF.
+- UIUX is incredibly important in simple applications.
+ 
+
 <!--
 Flask - CORS
 heroku python flask server
