@@ -34,7 +34,7 @@ Easily export summary to PDF. <br><br>
 
 
 <h3>How To Install</h3>
-<i>Note: Trimly may operate slowly initially because of the backend hosted on Heroku's free tier that sleeps.</i>
+<i>Note: Trimly may operate slowly initially because of the backend hosted on Heroku's free tier that sleeps. Due to the added functionality including multiple operations of the backend, the speed of Trimly is not yet optimised.</i>
 
 - Download the zip file, or git clone/pull Trimly.
 
