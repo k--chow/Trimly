@@ -17,20 +17,20 @@ Trimly is a chrome extension that summarizes articles.
 - [x] Returns information including author, title, and bolds keywords of article.
 - [x] Allows storage of articles into options page.
 - [x] Allows 'Export to PDF' option to create a PDF summary from the article.
-- [ ] Link to context of author of article.
-- [ ] Links to keyword wikipedia pages. 
-- [ ] Share article on Facebook.
+
 
 The three options of Trimly - five sentence summary, 
 ten sentence summary, and full article. 
 ![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/topbuttons.png "Final")
 
 Access the library of saved articles, convert the article summary into a PDF, and save the article.<br>
-![alt text](https://raw.githubusercontent.com/k--chow/Trimly/master/icons/bottombuttons.png "Final")
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/bottombuttons.png"/>
 
 Simple way to store and reread articles. <br>
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly2.gif"/>
 
 Easily export summary to PDF. <br>
+<img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/trimly3.gif"/>
 
 
 <h3>How To Install</h3>
@@ -46,6 +46,10 @@ Easily export summary to PDF. <br>
 - Load unpacked extensions and select the file directory for Trimly. 
 
 <img src="https://raw.githubusercontent.com/k--chow/Trimly/master/icons/install3.png"/>
+
+OR
+
+- Drag the CRX file into extensions.
 
 - Go to an article and click on the Trimly icon.
 
